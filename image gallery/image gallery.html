@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Responsive Image Gallery — HTML / CSS / JS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="title">
+        <h1>Responsive Image Gallery</h1>
+        <p class="lead">Hover effects, smooth transitions, lightbox, categories, and responsive layout.</p>
+      </div>
+
+      <div class="controls">
+        <input type="file" id="uploadInput" multiple accept="image/*" style="display:none;">
+        <button class="btn" id="uploadBtn" title="Upload images">Upload</button>
+        <button class="btn" id="shuffleBtn" title="Shuffle images">Shuffle</button>
+        <button class="btn primary" id="resetBtn" title="Reset filters">Reset</button>
+      </div>
+    </header>
+
+    <!-- Filters / Categories -->
+    <div class="filters" id="filters">
+      <button class="filter active" data-cat="all">All</button>
+      <button class="filter" data-cat="albums">Albums</button>
+      <button class="filter" data-cat="camera">Camera Uploads</button>
+      <button class="filter" data-cat="documents">Documents</button>
+    </div>
+
+    <!-- Gallery -->
+    <main>
+      <div class="gallery" id="gallery">
+        <!-- Cards inserted by JS for clarity; fallback basic card in HTML too -->
+      </div>
+    </main>
+
+    <footer>Tip: click any image to open the lightbox. Use ← / → keys or the buttons to navigate. Press Esc to close.</footer>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="panel fade-in" role="dialog" aria-modal="true">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div class="caption" id="lbCaption">Image</div>
+        <div style="display:flex;gap:.5rem">
+          <button class="nav-btn" id="prevBtn" title="Previous">◀</button>
+          <button class="nav-btn" id="nextBtn" title="Next">▶</button>
+          <button class="nav-btn" id="closeBtn" title="Close">✕</button>
+        </div>
+      </div>
+      <div class="imgwrap" id="lbImageWrap">
+        <img id="lbImg" alt="Expanded image" src="" />
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="display:flex;gap:.5rem;align-items:center">
+          <button class="chip" id="grayscaleToggle">Grayscale</button>
+          <button class="chip" id="blurToggle">Blur</button>
+          <button class="chip" id="sepiaToggle">Sepia</button>
+        </div>
+        <div class="caption" id="lbInfo">0 / 0</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
